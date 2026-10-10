@@ -29,6 +29,9 @@
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
+    // Touch fallback: Lenis doesn't smooth native touch scroll, so keep
+    // ScrollTrigger in sync via the native scroll event too.
+    window.addEventListener('scroll', ScrollTrigger.update, { passive: true });
   }
 
   function scrollToTarget(target) {

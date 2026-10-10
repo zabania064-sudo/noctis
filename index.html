@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOCTIS — Voyages Beyond the Known</title>
+  <meta name="description" content="NOCTIS Deep-Space Observatory offers civilian interstellar voyages — from low-orbit drift to the edge of a black hole. Begin the voyage.">
+  <meta name="theme-color" content="#030014">
+  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chapters.css">
+  <link rel="stylesheet" href="css/horizon.css">
+</head>
+<body>
+  <a class="skip-link" href="#chapter-01">Skip to the voyage</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <header class="nav" id="top">
+    <a class="nav-wordmark" href="#departure" data-nav aria-label="NOCTIS — back to departure">NOCTIS<span class="nav-dot">.</span></a>
+    <nav class="nav-links" aria-label="Voyage chapters">
+      <a href="#chapter-01" data-nav>The Voyage</a>
+      <a href="#chapter-03" data-nav>Trajectories</a>
+    </nav>
+    <button class="btn btn-gold btn-small" data-reserve data-magnetic data-cursor="Begin"><span>Reserve</span></button>
+  </header>
+
+  <main>
+    <!-- ============ HERO — DEPARTURE ============ -->
+    <section class="hero" id="departure" aria-labelledby="hero-title">
+      <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+      <div class="hero-inner">
+        <p class="hero-kicker reveal"><span class="pulse-dot" aria-hidden="true"></span>Noctis Deep-Space Observatory — Est. 2047</p>
+        <h1 class="hero-title" id="hero-title" aria-label="NOCTIS">NOCTIS</h1>
+        <p class="hero-sub reveal">Voyages beyond the known.</p>
+        <p class="hero-lede reveal">Commercial interstellar travel, engineered for civilians.<br>No training required — only curiosity.</p>
+        <div class="hero-cta reveal">
+          <a href="#chapter-01" class="btn btn-gold" data-nav data-magnetic data-cursor="Begin"><span>Begin the voyage</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <p class="hero-coords reveal">Departure vector 047 — 51.5074°N, 0.1278°W</p>
+      </div>
+      <a class="scroll-hint" href="#chapter-01" data-nav aria-label="Scroll to begin the voyage"><span class="scroll-hint-line" aria-hidden="true"></span><span class="scroll-hint-text">Scroll</span></a>
+    </section>
+
+    <!-- ============ CH.01 — LEAVE EARTH BEHIND ============ -->
+    <section class="chapter ch-earth" id="chapter-01" aria-labelledby="ch1-title">
+      <div class="pin-wrap">
+        <p class="chapter-label reveal-static"><span>CH.01</span> — Leaving Earth</p>
+        <div class="earth-stage" aria-hidden="true">
+          <div class="earth"></div>
+          <div class="earth-atmo"></div>
+        </div>
+        <div class="count-stack">
+          <p class="count-phase" data-phase="0">03</p>
+          <p class="count-phase" data-phase="1">02</p>
+          <p class="count-phase" data-phase="2">01</p>
+          <p class="count-phase count-liftoff" data-phase="3">Liftoff</p>
+          <div class="count-phase count-final" data-phase="4">
+            <h2 class="chapter-title kinetic" id="ch1-title">Leave Earth behind</h2>
+            <p class="chapter-lede">You are leaving everything you&rsquo;ve ever known.</p>
+            <p class="mono-note">Atmospheric exit in 90 seconds — cabin pressure nominal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH.02 — THE SILENT OCEAN ============ -->
+    <section class="chapter ch-ocean" id="chapter-02" aria-labelledby="ch2-title">
+      <canvas class="driftfield" id="driftfield" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <p class="chapter-label reveal"><span>CH.02</span> — Deep space</p>
+        <h2 class="chapter-title kinetic" id="ch2-title">The Silent Ocean</h2>
+        <p class="chapter-lede reveal">No wind. No waves. Only the hum of the drive and four billion kilometers of nothing — the most peaceful place you will ever be.</p>
+        <dl class="stats">
+          <div class="stat reveal">
+            <dt>Distance traveled</dt>
+            <dd><span class="stat-num" data-count="4200000000" data-format="int">0</span><span class="stat-unit">km</span></dd>
+          </div>
+          <div class="stat reveal">
+            <dt>Time dilation</dt>
+            <dd><span class="stat-num" data-count="1.37" data-format="dec2">0</span><span class="stat-unit">×</span></dd>
+          </div>
+          <div class="stat reveal">
+            <dt>Stars passed</dt>
+            <dd><span class="stat-num" data-count="128400" data-format="int">0</span><span class="stat-unit">★</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ CH.03 — NEBULA CROSSING ============ -->
+    <section class="chapter ch-nebula" id="chapter-03" aria-labelledby="ch3-title">
+      <div class="nebula-blob nebula-a" aria-hidden="true"></div>
+      <div class="nebula-blob nebula-b" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="chapter-label reveal"><span>CH.03</span> — Nebula crossing</p>
+        <h2 class="chapter-title kinetic" id="ch3-title">Choose your trajectory</h2>
+        <p class="chapter-lede reveal">Three ways to leave. All of them change you on the way back.</p>
+        <div class="tiers">
+          <article class="tier reveal" data-cursor="View">
+            <p class="tier-index">01</p>
+            <h3 class="tier-name">Drift</h3>
+            <p class="tier-meta">Low orbit — 6 days</p>
+            <p class="tier-desc">Six days above the blue marble. Sunrise every ninety minutes. Weightlessness, window seats, silence.</p>
+            <p class="tier-price"><span class="tier-currency">$</span>12,000</p>
+            <button class="btn btn-ghost" data-reserve data-tier="Drift" data-magnetic><span>Select Drift</span></button>
+          </article>
+          <article class="tier reveal" data-cursor="View">
+            <p class="tier-index">02</p>
+            <h3 class="tier-name">Crossing</h3>
+            <p class="tier-meta">Interstellar — 4 years ship-time</p>
+            <p class="tier-desc">Proxima bound. Sleep through the silent ocean, wake under another sun. The long way home.</p>
+            <p class="tier-price"><span class="tier-currency">$</span>85,000</p>
+            <button class="btn btn-ghost" data-reserve data-tier="Crossing" data-magnetic><span>Select Crossing</span></button>
+          </article>
+          <article class="tier tier-featured reveal" data-cursor="View">
+            <p class="tier-index">03</p>
+            <p class="tier-flag">Most chosen</p>
+            <h3 class="tier-name">Eventide</h3>
+            <p class="tier-meta">Black hole approach — 11 days</p>
+            <p class="tier-desc">Orbit the edge of forever. Watch time itself slow down. Come back… mostly.</p>
+            <p class="tier-price"><span class="tier-currency">$</span>250,000</p>
+            <button class="btn btn-gold" data-reserve data-tier="Eventide" data-magnetic><span>Select Eventide</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CH.04 — EVENT HORIZON ============ -->
+    <section class="chapter ch-horizon" id="chapter-04" aria-labelledby="ch4-title">
+      <div class="pin-wrap">
+        <p class="chapter-label reveal-static"><span>CH.04</span> — The edge</p>
+        <div class="hole-stage" aria-hidden="true">
+          <div class="hole">
+            <div class="hole-disk"></div>
+            <div class="hole-glow"></div>
+            <div class="hole-shadow"></div>
+          </div>
+        </div>
+        <div class="horizon-stack">
+          <div class="horizon-phase" data-hphase="0">
+            <h2 class="chapter-title" id="ch4-title">Event Horizon</h2>
+            <p class="chapter-lede">Beyond this point, no signal returns.</p>
+          </div>
+          <div class="horizon-phase horizon-final" data-hphase="1">
+            <p class="chapter-lede horizon-twist">Neither does regret.</p>
+            <button class="btn btn-gold btn-large" data-reserve data-magnetic data-cursor="Begin"><span>Reserve your voyage</span></button>
+            <p class="mono-note">Transmissions answered within 48 hours, Earth time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER — RETURN ============ -->
+  <footer class="footer" aria-label="Footer">
+    <div class="wrap footer-inner">
+      <p class="footer-wordmark">NOCTIS<span class="nav-dot">.</span></p>
+      <p class="footer-line">Noctis Observatory — Est. 2047</p>
+      <p class="footer-fiction">A fictional voyage. For now.</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#departure" data-nav>Departure</a>
+        <a href="#chapter-03" data-nav>Trajectories</a>
+        <button class="linklike" data-reserve>Reserve</button>
+      </nav>
+      <p class="footer-copy">© 2047 Noctis Observatory. All trajectories reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" aria-label="Close reservation dialog">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-body" id="modal-form-view">
+        <p class="chapter-label"><span>Reservation</span></p>
+        <h2 class="modal-title" id="modal-title">Reserve your voyage</h2>
+        <p class="modal-sub">Transmissions are answered within 48 hours, Earth time.</p>
+        <form id="booking-form" novalidate>
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Adaeze Okafor">
+            <p class="field-error" id="e-name" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@earth.example">
+            <p class="field-error" id="e-email" hidden></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-tier">Voyage tier</label>
+              <select id="f-tier" name="tier">
+                <option value="Drift">Drift — $12,000</option>
+                <option value="Crossing">Crossing — $85,000</option>
+                <option value="Eventide" selected>Eventide — $250,000</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-date">Departure date</label>
+              <input type="date" id="f-date" name="date">
+              <p class="field-error" id="e-date" hidden></p>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-gold btn-wide" data-magnetic><span>Confirm reservation</span></button>
+        </form>
+      </div>
+      <div class="modal-body modal-success" id="modal-success-view" hidden>
+        <p class="chapter-label"><span>Confirmed</span></p>
+        <h2 class="modal-title">Reservation received.</h2>
+        <p class="modal-sub">Your trajectory is being plotted.</p>
+        <div class="booking-ref">
+          <p class="mono-note">Booking reference</p>
+          <p class="ref-code" id="booking-ref">NX-2047-0000</p>
+        </div>
+        <p class="modal-sub" id="booking-summary"></p>
+        <button class="btn btn-ghost" id="modal-done" data-magnetic><span>Done</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/voyage.js"></script>
+</body>
+</html>

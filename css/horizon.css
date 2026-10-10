@@ -1,0 +1,177 @@
+/* ============================================================
+   NOCTIS — ch.04 event horizon, footer, modal, responsive,
+   reduced-motion
+   ============================================================ */
+
+/* ---------- CH.04 — EVENT HORIZON (pinned scrub) ---------- */
+.ch-horizon { background: #010008; padding: 0; }
+.ch-horizon .pin-wrap {
+  min-height: 100svh; position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: calc(var(--nav-h) + 20px) 6vw 60px;
+  overflow: hidden;
+}
+.hole-stage {
+  position: relative; width: min(58vmin, 440px); aspect-ratio: 1;
+  margin: 30px auto 10px;
+}
+.hole { position: absolute; inset: 0; }
+.hole-disk {
+  position: absolute; inset: 6%; border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg, rgba(251, 191, 36, .05) 40deg,
+    rgba(251, 191, 36, .9) 90deg, rgba(255, 240, 200, 1) 120deg,
+    rgba(245, 158, 11, .85) 160deg, rgba(180, 83, 9, .35) 210deg,
+    transparent 260deg, rgba(251, 191, 36, .12) 310deg, transparent 360deg);
+  -webkit-mask: radial-gradient(circle, transparent 56%, #000 57%, #000 78%, transparent 79%);
+  mask: radial-gradient(circle, transparent 56%, #000 57%, #000 78%, transparent 79%);
+  filter: blur(7px);
+  animation: disk-spin 24s linear infinite;
+}
+@keyframes disk-spin { to { transform: rotate(360deg); } }
+.hole-glow {
+  position: absolute; inset: -14%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, .22) 0%, rgba(251, 191, 36, .05) 42%, transparent 68%);
+  filter: blur(18px);
+  animation: glow-breathe 7s ease-in-out infinite;
+}
+@keyframes glow-breathe { 0%, 100% { opacity: .8; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+.hole-shadow {
+  position: absolute; inset: 22%; border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, #0a0a12 0%, #000 62%);
+  box-shadow: 0 0 22px 4px rgba(255, 236, 190, .85),
+              0 0 70px 18px rgba(251, 191, 36, .28),
+              inset 0 0 40px #000;
+}
+.horizon-stack { position: relative; width: 100%; max-width: 720px; margin: 26px auto 0; min-height: 260px; }
+.horizon-phase {
+  position: absolute; inset: 0; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  opacity: 0; visibility: hidden;
+}
+.horizon-phase .chapter-title { margin-bottom: 14px; }
+.horizon-twist {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.8rem, 4.6vw, 3rem); color: var(--gold);
+  text-shadow: 0 0 46px rgba(251, 191, 36, .4);
+  margin-bottom: 34px;
+}
+/* no-JS / reduced-motion default: show the twist + CTA */
+.no-js .horizon-phase[data-hphase="1"],
+.reduced .horizon-phase[data-hphase="1"] { opacity: 1; visibility: visible; position: relative; }
+.horizon-final .mono-note { margin-top: 22px; }
+
+/* ---------- FOOTER — RETURN ---------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 70px 0 40px; text-align: center;
+  background: linear-gradient(180deg, #010008, var(--void));
+}
+.footer-wordmark {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; letter-spacing: .3em;
+  margin-bottom: 12px;
+}
+.footer-line { color: var(--paper); font-weight: 500; margin-bottom: 4px; }
+.footer-fiction { color: var(--muted); font-style: italic; font-size: .92rem; margin-bottom: 30px; }
+.footer-nav { display: flex; gap: 28px; justify-content: center; align-items: center; margin-bottom: 30px; flex-wrap: wrap; }
+.footer-nav a, .linklike {
+  color: var(--muted); text-decoration: none; background: none; border: none; cursor: pointer;
+  font-family: var(--font-mono); font-size: .76rem; letter-spacing: .18em; text-transform: uppercase;
+  padding: 10px 4px; transition: color 150ms var(--ease-micro);
+}
+.footer-nav a:hover, .linklike:hover { color: var(--gold); }
+.footer-copy { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .14em; color: rgba(156, 163, 175, .55); }
+
+/* ---------- BOOKING MODAL ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 150;
+  background: rgba(1, 0, 8, .78);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; transition: opacity 260ms var(--ease-section);
+}
+.modal-backdrop[hidden] { display: none; }
+.modal-backdrop.open { opacity: 1; }
+.modal {
+  position: relative; width: min(520px, 100%); max-height: 92svh; overflow-y: auto;
+  background: linear-gradient(165deg, #141432, #0a0a1f 60%);
+  border: 1px solid rgba(251, 191, 36, .28); border-radius: 24px;
+  padding: 44px 40px 38px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, .6), 0 0 60px rgba(251, 191, 36, .08);
+  transform: translateY(26px) scale(.97); transition: transform 300ms var(--ease-spring);
+}
+.modal-backdrop.open .modal { transform: translateY(0) scale(1); }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(148, 163, 184, .1); border: 1px solid var(--border);
+  color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 150ms var(--ease-micro), color 150ms var(--ease-micro), transform 150ms var(--ease-micro);
+}
+.modal-close:hover { background: rgba(148, 163, 184, .22); color: var(--paper); transform: rotate(90deg); }
+.modal .chapter-label { justify-content: flex-start; margin-bottom: 12px; }
+.modal .chapter-label::before { display: none; }
+.modal-title {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.7rem; margin-bottom: 8px;
+}
+.modal-sub { color: var(--muted); font-size: .96rem; margin-bottom: 28px; }
+.field { margin-bottom: 20px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field label {
+  display: block; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 9px;
+}
+.field input, .field select {
+  width: 100%; min-height: 48px; padding: 13px 16px;
+  background: rgba(3, 0, 20, .6); border: 1px solid var(--border); border-radius: 12px;
+  color: var(--paper); font-family: var(--font-body); font-size: 1rem;
+  transition: border-color 150ms var(--ease-micro), box-shadow 150ms var(--ease-micro);
+  color-scheme: dark;
+}
+.field input::placeholder { color: rgba(156, 163, 175, .45); }
+.field input:focus, .field select:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(251, 191, 36, .18);
+  outline: none;
+}
+.field input[aria-invalid="true"] { border-color: #f87171; box-shadow: 0 0 0 3px rgba(248, 113, 113, .15); }
+.field-error { color: #fca5a5; font-size: .84rem; margin-top: 7px; min-height: 1.2em; }
+.modal-success { text-align: center; }
+.booking-ref {
+  border: 1px dashed rgba(251, 191, 36, .5); border-radius: 14px;
+  padding: 22px; margin: 6px 0 22px; background: rgba(251, 191, 36, .05);
+}
+.ref-code {
+  font-family: var(--font-mono); font-size: 1.5rem; letter-spacing: .14em; color: var(--gold);
+}
+.booking-ref .mono-note { margin: 0 0 8px; }
+#modal-done { min-width: 180px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .tiers { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+  .stats { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .nav-links { display: none; }
+  .chapter { padding: 16vh 0; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .field-row { grid-template-columns: 1fr; }
+  .modal { padding: 36px 24px 30px; }
+  .hero-lede br { display: none; }
+  .btn-large { width: 100%; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .grain, .pulse-dot, .scroll-hint-line, .nebula-a, .nebula-b,
+  .hole-disk, .hole-glow { animation: none !important; }
+  .js .reveal { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
+.reduced .grain, .reduced .pulse-dot, .reduced .scroll-hint-line,
+.reduced .nebula-a, .reduced .nebula-b, .reduced .hole-disk, .reduced .hole-glow {
+  animation: none !important;
+}
+.reduced .reveal { opacity: 1 !important; transform: none !important; }

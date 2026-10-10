@@ -1,0 +1,167 @@
+/* ============================================================
+   NOCTIS — chapters 01–03
+   ============================================================ */
+
+/* ---------- CH.01 — LEAVE EARTH BEHIND (pinned scrub) ---------- */
+.ch-earth { background: var(--void); padding: 0; }
+.ch-earth .pin-wrap {
+  min-height: 100svh; position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: calc(var(--nav-h) + 20px) 6vw 60px;
+}
+.earth-stage { position: relative; width: min(54vmin, 400px); aspect-ratio: 1; margin: 34px auto 8px; }
+.earth {
+  position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, .55), transparent 44%),
+    radial-gradient(circle at 68% 62%, #3b82f6 0%, #1d4ed8 34%, #14337e 62%, #0a1740 100%);
+  box-shadow:
+    0 0 90px rgba(56, 189, 248, .35),
+    0 0 200px rgba(56, 189, 248, .12),
+    inset -22px -30px 70px rgba(0, 0, 0, .6);
+  overflow: hidden;
+}
+.earth::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background:
+    radial-gradient(ellipse 34% 16% at 30% 42%, rgba(255,255,255,.5), transparent 70%),
+    radial-gradient(ellipse 26% 12% at 62% 30%, rgba(255,255,255,.42), transparent 70%),
+    radial-gradient(ellipse 30% 14% at 48% 66%, rgba(255,255,255,.36), transparent 70%),
+    radial-gradient(ellipse 18% 22% at 74% 52%, rgba(34, 197, 94, .5), transparent 70%),
+    radial-gradient(ellipse 22% 14% at 26% 62%, rgba(34, 197, 94, .42), transparent 70%);
+  filter: blur(6px);
+}
+.earth-atmo {
+  position: absolute; inset: -9%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, transparent 62%, rgba(125, 211, 252, .28) 72%, transparent 80%);
+}
+.count-stack { position: relative; width: 100%; max-width: 760px; margin: 30px auto 0; min-height: 220px; }
+.count-phase {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  text-align: center; opacity: 0; visibility: hidden;
+}
+.count-phase[data-phase="0"],
+.count-phase[data-phase="1"],
+.count-phase[data-phase="2"] {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(4rem, 12vw, 8rem); color: var(--paper);
+  text-shadow: 0 0 60px rgba(34, 211, 238, .4);
+  justify-content: center;
+}
+/* no-JS / reduced-motion default: show the final message, earth at rest */
+.no-js .count-phase[data-phase="4"],
+.reduced .count-phase[data-phase="4"] { opacity: 1; visibility: visible; position: relative; }
+.count-liftoff {
+  font-family: var(--font-display); font-weight: 600; letter-spacing: .3em;
+  font-size: clamp(1.6rem, 5vw, 3rem); color: var(--gold);
+  text-transform: uppercase; text-shadow: 0 0 50px rgba(251, 191, 36, .5);
+  justify-content: center;
+}
+.count-final { justify-content: flex-start; }
+.count-final .chapter-title { margin-bottom: 16px; }
+
+/* ---------- CH.02 — THE SILENT OCEAN ---------- */
+.ch-ocean {
+  background: linear-gradient(180deg, var(--void) 0%, #05021a 55%, var(--void) 100%);
+}
+.driftfield { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .8; }
+.ch-ocean .wrap { position: relative; z-index: 2; }
+.stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 70px;
+}
+.stat {
+  background: rgba(16, 16, 42, .6);
+  border: 1px solid var(--border); border-radius: 18px;
+  padding: 34px 26px; text-align: center;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: transform 220ms var(--ease-spring), border-color 220ms var(--ease-micro), box-shadow 220ms var(--ease-micro);
+}
+.stat:hover {
+  transform: translateY(-6px); border-color: rgba(34, 211, 238, .5);
+  box-shadow: 0 18px 44px rgba(34, 211, 238, .12);
+}
+.stat dt {
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.stat dd {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.7rem, 4vw, 2.7rem); color: var(--paper);
+  display: flex; align-items: baseline; justify-content: center; gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-unit { font-size: 1rem; color: var(--cyan); font-family: var(--font-mono); }
+
+/* ---------- CH.03 — NEBULA CROSSING ---------- */
+.ch-nebula {
+  background: var(--void);
+}
+.nebula-blob { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; }
+.nebula-a {
+  width: 56vw; height: 56vw; left: -14vw; top: 6%;
+  background: radial-gradient(circle, rgba(124, 58, 237, .34), transparent 65%);
+  animation: nebula-drift 26s ease-in-out infinite alternate;
+}
+.nebula-b {
+  width: 48vw; height: 48vw; right: -12vw; bottom: 4%;
+  background: radial-gradient(circle, rgba(34, 211, 238, .2), transparent 65%);
+  animation: nebula-drift 32s ease-in-out infinite alternate-reverse;
+}
+@keyframes nebula-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(6vw, -4vh) scale(1.12); }
+}
+.ch-nebula .wrap { position: relative; z-index: 2; }
+.tiers {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  margin-top: 64px; align-items: stretch;
+}
+.tier {
+  position: relative;
+  background: linear-gradient(160deg, rgba(16, 16, 42, .92), rgba(10, 10, 31, .92));
+  border: 1px solid var(--border); border-radius: 22px;
+  padding: 38px 32px 34px;
+  display: flex; flex-direction: column;
+  transition: transform 260ms var(--ease-spring), border-color 220ms var(--ease-micro), box-shadow 260ms var(--ease-micro);
+}
+.tier:hover {
+  transform: translateY(-10px);
+  border-color: rgba(124, 58, 237, .65);
+  box-shadow: 0 24px 60px rgba(124, 58, 237, .22);
+}
+.tier-featured {
+  border-color: rgba(251, 191, 36, .45);
+  background: linear-gradient(160deg, rgba(30, 22, 8, .55), rgba(16, 16, 42, .94) 55%);
+}
+.tier-featured:hover {
+  border-color: var(--gold);
+  box-shadow: 0 24px 70px rgba(251, 191, 36, .2);
+}
+.tier-flag {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+  background: linear-gradient(135deg, var(--gold), #f59e0b); color: #1a1005;
+  padding: 7px 16px; border-radius: 999px; font-weight: 500; white-space: nowrap;
+}
+.tier-index {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .26em;
+  color: var(--violet); margin-bottom: 16px;
+}
+.tier-featured .tier-index { color: var(--gold); }
+.tier-name {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.9rem; margin-bottom: 6px;
+}
+.tier-meta {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 18px;
+}
+.tier-desc { color: var(--muted); font-size: .98rem; flex: 1; margin-bottom: 26px; }
+.tier-price {
+  font-family: var(--font-display); font-weight: 600; font-size: 2.1rem;
+  margin-bottom: 26px; display: flex; align-items: baseline; gap: 4px;
+}
+.tier-currency { font-size: 1.2rem; color: var(--gold); }
+.tier .btn { width: 100%; }

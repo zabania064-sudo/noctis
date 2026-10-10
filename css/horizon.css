@@ -20,13 +20,10 @@
    Interstellar-inspired: thin accretion disk seen edge-on,
    gravitational lensing arcs above/below the shadow,
    Doppler beaming (left side brighter than right). */
-.hole-disk {
-  position: absolute; inset: 0; border-radius: 50%;
-  background: url('../images/gargantua.jpg') center/cover no-repeat;
-  /* subtle slow rotation for living feel */
-  animation: disk-drift 80s linear infinite;
-}
-@keyframes disk-drift { to { transform: rotate(360deg); } } }
+.hole-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border-radius: 50%; object-fit: cover;
+} }
 .hole-glow {
   position: absolute; inset: -14%; border-radius: 50%;
   background: radial-gradient(circle, rgba(251, 191, 36, .22) 0%, rgba(251, 191, 36, .05) 42%, transparent 68%);

@@ -1,0 +1,4 @@
+{
+  "text": "{\"error_format_version\":1,\"error\":{\"code\":\"video_not_available\",\"retryable\":false,\"detail\":\"Video generation isn't available in your country or region.\",\"downstream_status\":403,\"attempt_id\":\"d5c4a0d2-25bb-4cb5-9220-213bb3efe2a8\",\"origin_stage\":\"request_validation\",\"root_cause_known\":true,\"fallback_emitted\":true,\"source_error_code\":\"video_not_available\",\"failure_kind\":\"capability_unavailable\"}}",
+  "attachments": []
+}

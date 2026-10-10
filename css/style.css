@@ -200,7 +200,11 @@ img, canvas, svg { display: block; max-width: 100%; }
 }
 /* kinetic mask — JS splits into .char spans */
 .js .hero-title .mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
-.js .hero-title .char { display: inline-block; will-change: transform; }
+.js .hero-title .char {
+  display: inline-block; will-change: transform;
+  background: linear-gradient(180deg, #fff 30%, #b8b8d4 70%, #6d6d94 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 
 .hero-sub {
   font-family: var(--font-display); font-weight: 400;

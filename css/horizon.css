@@ -16,13 +16,53 @@
   margin: 30px auto 10px;
 }
 .hole { position: absolute; inset: 0; }
+/* ===== GARGANTUA-STYLE BLACK HOLE (pure CSS) =====
+   Interstellar-inspired: thin accretion disk seen edge-on,
+   gravitational lensing arcs above/below the shadow,
+   Doppler beaming (left side brighter than right). */
 .hole-disk {
-  position: absolute; inset: 0; border-radius: 50%;
-  background: url('../images/blackhole.jpg') center/cover no-repeat;
-  /* slow rotation for living feel — the real image has no motion */
-  animation: disk-spin 60s linear infinite;
+  position: absolute; inset: 0;
+  /* main disk: thin, bright, asymmetric (Doppler beaming) */
+  background:
+    /* top lensing arc — disk light bent over the shadow */
+    radial-gradient(ellipse 42% 16% at 50% 28%, rgba(255, 220, 150, .55), transparent 70%),
+    /* bottom lensing arc */
+    radial-gradient(ellipse 42% 16% at 50% 72%, rgba(255, 200, 120, .45), transparent 70%),
+    /* main disk band — brighter on left (approaching side) */
+    linear-gradient(90deg,
+      transparent 8%,
+      rgba(255, 180, 80, .25) 22%,
+      rgba(255, 220, 150, .95) 38%,
+      rgba(255, 240, 210, 1) 46%,
+      rgba(255, 220, 150, .9) 54%,
+      rgba(255, 160, 60, .45) 68%,
+      transparent 92%);
+  -webkit-mask:
+    /* shadow cutout in center */
+    radial-gradient(ellipse 34% 30% at 50% 50%, transparent 58%, #000 59%),
+    /* constrain disk to thin horizontal band + arcs */
+    linear-gradient(#000, #000);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(ellipse 34% 30% at 50% 50%, transparent 58%, #000 59%),
+    linear-gradient(#000, #000);
+  mask-composite: intersect;
+  filter: blur(1.5px) saturate(1.2);
 }
-@keyframes disk-spin { to { transform: rotate(360deg); } }
+.hole-disk::before {
+  /* inner hot rim — the photon ring */
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle, transparent 62%, rgba(255, 240, 210, .8) 66%, transparent 70%);
+  filter: blur(2px);
+}
+.hole-disk::after {
+  /* subtle rotation shimmer */
+  content: ""; position: absolute; inset: 0;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 200, 120, .08), transparent 30%);
+  animation: disk-shimmer 12s linear infinite;
+  border-radius: 50%;
+}
+@keyframes disk-shimmer { to { transform: rotate(360deg); } }
 .hole-glow {
   position: absolute; inset: -14%; border-radius: 50%;
   background: radial-gradient(circle, rgba(251, 191, 36, .22) 0%, rgba(251, 191, 36, .05) 42%, transparent 68%);

@@ -22,7 +22,7 @@
    Doppler beaming (left side brighter than right). */
 .hole-disk {
   position: absolute; inset: 0; border-radius: 50%;
-  background: url('../images/blackhole.jpg') center/cover no-repeat;
+  background: url('../images/gargantua.jpg') center/cover no-repeat;
   /* subtle slow rotation for living feel */
   animation: disk-drift 80s linear infinite;
 }

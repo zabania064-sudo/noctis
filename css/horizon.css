@@ -12,11 +12,11 @@
   overflow: hidden;
 }
 .hole-stage {
-  position: relative; width: 100vw; max-width: 1400px; aspect-ratio: 16/8;
-  margin: 20px auto; left: 50%; transform: translateX(-50%);
+  position: relative; width: 100vw; max-width: 1600px; aspect-ratio: 16/7;
+  margin: 20px calc(-50vw + 50%);
   /* fade edges into the void — no visible box */
-  -webkit-mask-image: radial-gradient(ellipse 75% 85% at 50% 50%, #000 55%, transparent 98%);
-  mask-image: radial-gradient(ellipse 75% 85% at 50% 50%, #000 55%, transparent 98%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, #000 45%, transparent 95%);
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, #000 45%, transparent 95%);
 }
 .hole { position: absolute; inset: 0; }
 /* ===== GARGANTUA-STYLE BLACK HOLE (pure CSS) =====

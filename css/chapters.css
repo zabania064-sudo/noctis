@@ -12,14 +12,18 @@
 .earth-stage { position: relative; width: min(54vmin, 400px); aspect-ratio: 1; margin: 34px auto 8px; }
 .earth {
   position: absolute; inset: 0; border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, .55), transparent 44%),
-    radial-gradient(circle at 68% 62%, #3b82f6 0%, #1d4ed8 34%, #14337e 62%, #0a1740 100%);
+  background: url('../images/earth.jpg') center/cover no-repeat;
   box-shadow:
     0 0 90px rgba(56, 189, 248, .35),
     0 0 200px rgba(56, 189, 248, .12),
-    inset -22px -30px 70px rgba(0, 0, 0, .6);
+    inset -22px -30px 70px rgba(0, 0, 0, .55);
   overflow: hidden;
+}
+.earth::after {
+  /* terminator shadow for spherical depth */
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle at 68% 62%, transparent 40%, rgba(3, 0, 20, .65) 100%);
+  pointer-events: none;
 }
 .earth::before {
   content: ""; position: absolute; inset: 0; border-radius: 50%;

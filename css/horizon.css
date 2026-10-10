@@ -17,16 +17,10 @@
 }
 .hole { position: absolute; inset: 0; }
 .hole-disk {
-  position: absolute; inset: 6%; border-radius: 50%;
-  background: conic-gradient(from 0deg,
-    transparent 0deg, rgba(251, 191, 36, .05) 40deg,
-    rgba(251, 191, 36, .9) 90deg, rgba(255, 240, 200, 1) 120deg,
-    rgba(245, 158, 11, .85) 160deg, rgba(180, 83, 9, .35) 210deg,
-    transparent 260deg, rgba(251, 191, 36, .12) 310deg, transparent 360deg);
-  -webkit-mask: radial-gradient(circle, transparent 56%, #000 57%, #000 78%, transparent 79%);
-  mask: radial-gradient(circle, transparent 56%, #000 57%, #000 78%, transparent 79%);
-  filter: blur(7px);
-  animation: disk-spin 24s linear infinite;
+  position: absolute; inset: 0; border-radius: 50%;
+  background: url('../images/blackhole.jpg') center/cover no-repeat;
+  /* slow rotation for living feel — the real image has no motion */
+  animation: disk-spin 60s linear infinite;
 }
 @keyframes disk-spin { to { transform: rotate(360deg); } }
 .hole-glow {

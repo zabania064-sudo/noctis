@@ -287,10 +287,13 @@
     });
     hPhases.forEach(function (p) { horizonTl.set(p, { visibility: 'visible' }, 0); });
     horizonTl.to(hPhases[0], { opacity: 1, duration: 0.8 })
-             .to(hole, { scale: 1.35, ease: 'none', duration: 2.6 }, 0)
-             .to(hPhases[0], { opacity: 0, y: -40, duration: 0.7 }, '+=0.9')
-             .to(hPhases[1], { opacity: 1, y: 0, duration: 0.9 }, '-=0.3')
-             .to(hole, { scale: 1.55, ease: 'none', duration: 1.2 }, '-=1.0');
+             .to(hole, { scale: 1.4, ease: 'none', duration: 2.2 }, 0)
+             .to(hPhases[0], { opacity: 0, y: -40, duration: 0.6 }, '+=0.8')
+             // dive: push into the hole, then fade everything to black
+             .to(hole, { scale: 2.2, ease: 'power2.in', duration: 1.4 }, '-=0.2')
+             .to(hole, { opacity: 0, ease: 'power2.in', duration: 1.0 }, '-=0.8')
+             // only from the darkness: the final text emerges
+             .to(hPhases[1], { opacity: 1, y: 0, duration: 1.0 }, '+=0.3');
     gsap.set(hPhases[1], { y: 40 });
   }
 

@@ -14,9 +14,9 @@
 .hole-stage {
   position: relative; width: 100vw; max-width: 1600px; aspect-ratio: 16/7;
   margin: 20px calc(-50vw + 50%);
-  /* fade edges into the void — no visible box */
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, #000 45%, transparent 95%);
-  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, #000 45%, transparent 95%);
+  /* aggressive fade — dissolve every edge into the void */
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, #000 30%, transparent 85%);
 }
 .hole { position: absolute; inset: 0; }
 /* ===== GARGANTUA-STYLE BLACK HOLE (pure CSS) =====
